@@ -321,7 +321,8 @@ echo "<br><br>";
 
 // ARREGLOS
 print "005 ARREGLOS<br>";
-$colores = array("rojo","amarillo","azul");
+$colores = array('rojo','amarillo','azul');
+$colores = ['rojo','amarillo','azul'];
 print "esta es el arreglo : $colores[2] $colores[1] $colores[0]<br>";
 print "esta es el arreglo : $colores[2] . " . $colores[1] . " " . $colores[0];
 echo "<br>";
@@ -339,8 +340,22 @@ echo "<br><br>";
 // arreglos con propiedades
 print "006 ARREGLOS con propiedades (asociativo)<br>";
 $colores = array('cero'=>'rojo','uno'=>'amarillo','dos'=>'azul');
+$colores2 = ['cero'=>'rojo','uno'=>'amarillo','dos'=>'azul'];
+$colores3 = [['cero'=>'rojo','uno'=>'amarillo','dos'=>'azul'], ['cero'=>'azul','uno'=>'rojo','dos'=>'amarillo']];	//arreglo multiple arreglo
 print "esta es el arreglo con propiedad (asociativo): $colores[uno] $colores[cero] $colores[dos]<br>";
 print "esta es el arreglo con propiedad (asociativo): $colores[uno] " . $colores['cero'] . " " . $colores["dos"];
+echo "<br>";
+print "colores = ";
+print_r($colores);
+echo "<br>";
+print "colores2 = ";
+print_r($colores2);
+echo "<br>";
+print "colores3 [0] = ";
+print_r($colores3[0]);
+echo "<br>";
+print "colores3 [1] = ";
+print_r($colores3[1]);
 echo "<br>";
 print "var_dump --> ";
 var_dump($colores);
@@ -350,6 +365,11 @@ print "print_r --> ";
 print_r($colores);		//impresion completa del array
 $retorno = array_key_exists("tres", $colores);		//devuelve si el indice dado del arreglo está definido o no
 printf ("<br>array_key_exists de \"tres\" %s ---> %b", $colores["tres"], $retorno);
+
+$colores = array_merge($colores, ['tres'=>'cyan','cuatro'=>'magenta']);
+echo "<br>";
+print "despues de array_merge --> ";
+print_r($colores);				//para conocer el tipo y valor de una variable, imprime el resultado
 echo "<br><br>";
 
 // Variable/Arreglos OBJETO
@@ -361,6 +381,7 @@ echo "<br>";
 print "var_dump --> ";
 var_dump($colores);				//para conocer el tipo y valor de una variable, imprime el resultado
 echo "<br><br>";
+
 
 
 //VARIABLES / STRINGS
