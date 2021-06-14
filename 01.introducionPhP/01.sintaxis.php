@@ -317,6 +317,13 @@ echo "esta es la booleana : $booleana";
 echo "<br>";
 print "var_dump --> ";
 var_dump($booleana);
+echo "<br>";
+//OPERADORES LOGICOS
+print "OPERADORES LOGICOS<br>";
+$booleana1 = $booleana && true;
+print "\$booleana && true = $booleana1 <br>";
+$booleana1 = $booleana || false;
+print "\$booleana || false = $booleana1";
 echo "<br><br>";
 
 // ARREGLOS
@@ -456,7 +463,8 @@ preg_match('/^[\pL\pN .-]+$/', $texto);
 //\pN any kind of numeric character (means also e.g. roman numerals)
 //if you want to limit to digits, then use \pNd
 
-
+//VARIABLES / ST
+print "CONDICIONALES<br>";
 $a = 15;
 if ($a == 10) {
 //	echo "\$a es igual a 10";
@@ -495,7 +503,6 @@ posible valor 4
 // algoritmo a ejecutar si valor no ha sido contemplado en
 // ningúno de los «case» anteriores
 }
-print "<br>";
 
 
 //FECHAS / HORAS
