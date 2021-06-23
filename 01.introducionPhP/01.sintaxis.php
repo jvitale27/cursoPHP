@@ -340,8 +340,15 @@ $colores[] = "verde";	//le agrego un elemento a un array
 print_r($colores);
 $retorno = array_key_exists(3, $colores);		//devuelve si el indice dado del arreglo está definido o no
 printf ("<br>array_key_exists---> %b<br>", $retorno);
+$retorno = in_array('verde', $colores);		//devuelve si el indice dado del arreglo está definido o no
+printf ("in_array('verde',...)---> %b<br>", $retorno);
 $parametros = array("primero",4.56,87);			//puedo combinar tipos de datos en un mismo arreglo
 var_dump($parametros);
+list($a, $b, $c) = $parametros;		//extraigo cada componente del arreglo en cada vble
+print "<br>luego de list() \$a='$a'  \$b='$b'  \$c='$c'<br>";
+print "el array tiene count()='" . count($parametros) . "' elementos";
+unset($parametros[1]);			//elimino(DESTRUYO) el elemento '4.56' del array
+
 echo "<br><br>";
 
 // arreglos con propiedades
@@ -452,12 +459,16 @@ filter_var($valor,FILTER_VALIDATE_INT);		//devuelve true si valida el dato
 //FILTER_VALIDATE_IP dirección IP 
 //FILTER_VALIDATE_MAC dirección MAC física 
 
-//Validacion de caracteres en un string
+//VALIDACION DE CARACTERES EN UN STRING
 $texto = "Algun texto con caracteres. - ";
+
 //entre corchetes agrego los caracteres que permito en el array. Solo 5,6 o 7 caracteres, probar!!!!! 
-//'regex:/^[a-z0-9 .\-]+$/'     //esto es para la validation rules de Laravel
+//esto es para la validation rules de Laravel
+//'regex:/^[a-z0-9 .\-]+$/'     
 //'regex:/^[\pL\pN +-]+$/'
 //'no_regex:/^[\pL\pN +-]+$/'   //impido esos caracteres
+
+//esto es para la validation rules de php 
 preg_match('/^[\pL\pN .-]+$/', $texto);
 //\pL is any letter in any language, matches also Chinese, Hebrew, Arabic, ... characters.
 //\pN any kind of numeric character (means also e.g. roman numerals)
@@ -597,6 +608,7 @@ foreach($nombres as &$nombre) {		//paso la direccion de cada valor para poder mo
 print_r($nombres);
 echo "<br><br>";
 
+print "009-1 LOOPS BUCLES<br><br>";
 $years = array();
 $year = 1990;
 while ($year <= 2000) {
