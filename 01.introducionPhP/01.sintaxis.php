@@ -549,9 +549,9 @@ print "<br>";
 //algunos manejos de direcciones http y funciones varias
 print "Funciones de manejo de http y otras<br>";
 $dominio = "http://{$_SERVER['SERVER_NAME']}";
-$uri = "{$dominio}{$_SERVER['REQUEST_URI']}";
-$ultimo_tramo = str_replace("{$dominio}/", NULL, $uri);
-print "$dominio -- $uri -- $ultimo_tramo -- {$_SERVER['REQUEST_URI']}<br>";
+$url = "{$dominio}{$_SERVER['REQUEST_URI']}";
+$ultimo_tramo = str_replace("{$dominio}/", "", $url);
+print "$dominio -- $url -- $ultimo_tramo -- {$_SERVER['REQUEST_URI']}<br>";
 $partes = explode("/", $ultimo_tramo);
 print_r($partes);
 print " tiene " . count($partes) . " elementos el arreglo \$partes<br>";
@@ -653,6 +653,7 @@ nombre_de_la_funcion("hola", 2);			// llamada a una funcion
 
 // Función que hará la llamada de retorno
 function llamar_a_otra($funcion) {
+	$parametro1 = $parametro2 = NULL;
 	echo call_user_func($funcion);		//llama a la funcion con el nombre del valor de la vble $function
 	echo call_user_func($funcion, $parametro1, $parametro2);	//llama a la funcion con parametros
 	$parametros = array("primero",4.56,87);
@@ -980,7 +981,7 @@ class NuevoObjeto extends Objeto {
 }
 
 //Para poder acceder a las propiedades del objeto, dentro de la clase, se utiliza la pseudo variable $this y lo mismo aplica paraacceder a los métodos
-class A {
+class UNACLASE {
 	public $foo = '';
 
 	function bar() {
